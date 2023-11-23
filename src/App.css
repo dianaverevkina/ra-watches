@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav,footer,header,aside{display: block;}
+input,button,textarea{font-family:inherit;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;}
+button{background-color: transparent;}
+
+.app {
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app__header {
+  font-size: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.form__row {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 700;
+}
+
+.form__input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.4rem;
+}
+
+.form__input_invalid {
+  border: 1px solid red;
+}
+
+.form__btn {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #d2dff5;
+  border: 1px solid #658bca;
+  cursor: pointer;
+}
+
+.watches-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.watches {
+  width: calc((100% - 6rem) / 4);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.watches__wrapper {
+  position: relative;
+  padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.watches__circle {
+  width: 130px; 
+  height: 130px;
+  border-radius: 50%;
+  border: 5px double #333;
+  background: radial-gradient(#333, #000);
+  position: relative;
+}
+
+.watches__arrow-hour, .watches__arrow-min, .watches__arrow-sec {
+  position: absolute;
+  background: white;
+  transform-origin: bottom center;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.watches__arrow-hour {
+  width: 4%;
+  height: 30%;
+  left: calc(50% - (4% / 2));
+  top: calc(50% - 30%);
+}
+.watches__arrow-min {
+  width: 2%;
+  height: 40%;
+  left: calc(50% - (2% / 2));
+  top: calc(50% - 40%);
+}
+.watches__arrow-sec {
+  width: 1%;
+  height: 45%;
+  background: red;
+  left: calc(50% - (1% / 2));
+  top: calc(50% - 45%);
+}
+
+.watches__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid grey;
+  padding: 0.2rem;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.watches__btn  img {
+  max-width: 100%;
+  object-fit: cover;
+  fill: white;
 }
